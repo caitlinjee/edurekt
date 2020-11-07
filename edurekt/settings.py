@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'lecturers.apps.LecturersConfig',
     'modules.apps.ModulesConfig',
     'rooms.apps.RoomsConfig',
+    'ccas.apps.StudentsConfig',
     'students.apps.StudentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,18 +1,18 @@
 from rest_framework import serializers
 
-from modules.models import Module
-from students.models import Student, TakeModule
+from ccas.models import CCA
+from students.models import Student, JoinCCA
 
 
 class StudentSerializer(serializers.ModelSerializer):
-    modules = serializers.PrimaryKeyRelatedField(many=True, queryset=Module.objects.all(), read_only=False)
+    ccas = serializers.PrimaryKeyRelatedField(many=True, queryset=CCA.objects.all(), read_only=False)
 
     class Meta:
         model = Student
-        fields = ('matriculation_number', 'name', 'year', 'course', 'modules')
+        fields = ('matric_number', 'name', 'year', 'course', 'membership_status', 'ccas')
 
 
-class TakeModuleSerializer(serializers.ModelSerializer):
+class JoinCCASerializer(serializers.ModelSerializer):
     class Meta:
-        model = TakeModule
-        fields = ('module', 'student')
+        model = JoinCCA
+        fields = ('cca', 'student')
